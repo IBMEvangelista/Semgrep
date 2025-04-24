@@ -12,3 +12,6 @@ jobs:
     steps:
     -  name: Checkout do Código
        uses: actions/checkout@v3
+
+    - name: Instancia TruffleHog
+      run: docker pull trufflesecurity/trufflehog:latest
