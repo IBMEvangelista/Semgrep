@@ -20,7 +20,7 @@ jobs:
 
     - name: Install Semgrep
       run: |
-        python -m install --upgrade pip install semgrep
+        python -m pip install semgrep
 
     - name: Run Semgrep scan
       run: semgrep scan --config=auto
