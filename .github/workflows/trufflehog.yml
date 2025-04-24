@@ -16,6 +16,5 @@ jobs:
     - name: Instancia TruffleHog
       run: docker pull trufflesecurity/trufflehog:latest
     - name: Run TruffleHog
-    - Id: TruffleHog
     - run: |
         docker run --rm -v $PWD:/pwd trufflesecurity/trufflehog:latest github --repo https://github.com/IBMEvangelista/Semgrep 
