@@ -2,7 +2,8 @@ name: trufflehog scan
 
 on:
   pull_request:
-      branches: [main]
+      branches:
+        - main
 
 jobs:
   trufflehog:
@@ -11,12 +12,3 @@ jobs:
     steps:
     -  name: Checkout do Código
        uses: actions/checkout@v3
-
-    -  name: |
-            docker pull trufflesecurity/trufflehog:latest
-            
-    -  name: Run Trufflehog
-       run: |
-           docker run --rm -v $PWD:/pwd trufflesecurity/trufflehog:latest github --repo https://github.com/IBMEvangelista/Semgrep
-
-
