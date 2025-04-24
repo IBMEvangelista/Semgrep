@@ -13,9 +13,9 @@ jobs:
     -  name: Checkout do Código
        uses: actions/checkout@v3
 
-    - name: Instancia TruffleHog
-      run: docker pull trufflesecurity/trufflehog:latest
-      
-    - name: Run TruffleHog
-    - run: |
-        docker run --rm -v $PWD:/pwd trufflesecurity/trufflehog:latest github --repo https://github.com/IBMEvangelista/Semgrep 
+    - name: Install Trufflehog
+      run: python -m pip install upgrade pip
+           pip install trufflehog
+
+    - name: Run Trufflehog
+      run: trufflehog filesystem
