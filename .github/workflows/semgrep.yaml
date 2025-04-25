@@ -33,7 +33,7 @@ jobs:
       uses: peter-evans/create-issue-from-file@v4
       with:
         title: "Semgrep encontrou problemas no código"
-content-filepath: .semgrep_issue.md
+      content-filepath: .semgrep_issue.md
            
 
 
