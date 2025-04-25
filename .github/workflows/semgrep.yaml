@@ -23,6 +23,20 @@ jobs:
         python -m pip install semgrep
 
     - name: Run Semgrep scan
-      run: semgrep scan --config=auto
+      run: semgrep scan --config=auto . || echo "semgrep_failed=true" >> $GITHUB_ENV
+    
+    - name: Mensagem de Sucesso
+      if: env.semgrep_failed!='true'
+      run: echo "Nenhum problema encontrado pelo semgrep"
+    - name: Mensagem se o Semgrep Falhar
+      if: env.semgrep_failed=='true'
+      uses: peter-evans/create-issue-from-file@v4
+      with:
+        title: "Semgrep encontrou problemas no código"
+content-filepath: .semgrep_issue.md
+           
+
+
+    
 
    

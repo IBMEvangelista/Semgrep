@@ -23,3 +23,5 @@ jobs:
 
     - name: Run Trufflehog
       run: trufflehog https://github.com/IBMEvangelista/Semgrep
+
+    
