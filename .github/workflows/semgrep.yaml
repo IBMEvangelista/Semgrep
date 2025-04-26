@@ -23,7 +23,7 @@ jobs:
           python -m pip install semgrep
 
       - name: Run Semgrep scan
-        run: semgrep scan45 --config=auto . || echo "semgrep_failed=true" >> $GITHUB_ENV
+        run: semgrep scan --config=auto . || echo "semgrep_failed=true" >> $GITHUB_ENV
 
       - name: Mensagem de Sucesso
         if: env.semgrep_failed != 'true'
