@@ -27,8 +27,11 @@ jobs:
 
       - name: Mensagem de Sucesso
         if: env.semgrep_failed != 'true'
-        run: echo "✅ Nenhum problema encontrado pelo Semgrep."
-
+        uses: peter-evans/create-issue-from-file@v4
+        with:
+          title: "Semgrep okey"
+          content-filepath: .semgrep_issue.md
+        
       - name: Mensagem se o Semgrep Falhar
         if: env.semgrep_failed == 'true'
         uses: peter-evans/create-issue-from-file@v4
