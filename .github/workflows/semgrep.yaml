@@ -26,11 +26,11 @@ jobs:
         run: semgrep scan --config=auto . || echo "semgrep_failed=true" >> $GITHUB_ENV
 
       - name: Mensagem de Sucesso
-        if: {{ env.semgrep_failed != 'true' }}
+        if: env.semgrep_failed != 'true'
         run: echo "✅ Nenhum problema encontrado pelo Semgrep."
 
       - name: Mensagem se o Semgrep Falhar
-        if: {{ env.semgrep_failed == 'true' }}
+        if: env.semgrep_failed == 'true'
         uses: peter-evans/create-issue-from-file@v4
         with:
           title: "Semgrep encontrou problemas no código"
